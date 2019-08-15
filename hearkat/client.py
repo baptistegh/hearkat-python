@@ -2,7 +2,6 @@ import requests
 import json
 
 class Client:
-    
     def __init__(self, userToken, accessToken):
         self.baseUrl = "https://api.hearkat.com"
         self.userToken = userToken
@@ -17,6 +16,6 @@ class Client:
         req = requests.post(
             "{0}/channel/{1}".format(self.baseUrl, channel),
             headers=headers,
-            data=json.dumps(message)
+            data=message.to_json()
         )
         return req.status_code == 200
