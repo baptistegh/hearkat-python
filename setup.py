@@ -1,13 +1,12 @@
-import setuptools
+from setuptools import setup, find_packages
 
-setuptools.setup(
+setup(
     name='hearkat',
     version='0.0.1',
     description='Hearkat',
     long_description=open('README.md').read().strip(),
     author='IDerr',
-    author_email='ibrahim@derraz.fr',
-    py_modules=['hearkat'],
+    packages = find_packages(),
     install_requires=[],
     license='MIT License'
 )
