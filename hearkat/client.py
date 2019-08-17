@@ -32,9 +32,7 @@ class Client:
             "{0}/channel/{1}".format(self.baseUrl, channel),
             headers=headers
         )
-        if (req.status_code != 200):
-            return { "status":req.status_code, "data":None }
-        return { "status":req.status_code, "data": json.loads(req.text) }
+        return { "status": req.status_code, "data" : json.loads(req.text) if req.status_code == 200 else None }
 
     # PULL on every channel
     def pullAll(self):
@@ -47,6 +45,4 @@ class Client:
             "{0}/channel".format(self.baseUrl),
             headers=headers
         )
-        if (req.status_code != 200):
-            return { "status":req.status_code, "data":None }
-        return { "status":req.status_code, "data": json.loads(req.text) }
+        return { "status": req.status_code, "data" : json.loads(req.text) if req.status_code == 200 else None }
