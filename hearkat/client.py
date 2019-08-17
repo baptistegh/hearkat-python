@@ -33,7 +33,7 @@ class Client:
             headers=headers
         )
         if (req.status_code != 200):
-            return { "status":req.status_code, "data":None, "error": req.text }
+            return { "status":req.status_code, "data":None }
         return { "status":req.status_code, "data": json.loads(req.text) }
 
     # PULL on every channel
@@ -48,5 +48,5 @@ class Client:
             headers=headers
         )
         if (req.status_code != 200):
-            return { "status":req.status_code, "data":None, "error": req.text }
+            return { "status":req.status_code, "data":None }
         return { "status":req.status_code, "data": json.loads(req.text) }
